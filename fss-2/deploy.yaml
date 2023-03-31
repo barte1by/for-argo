@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fadeev-2
+spec:
+  replicas: 4
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: fadeev-2
+  template:
+    metadata:
+      labels:
+        app: fadeev-2
+    spec:
+      containers:
+      - image: barte1by/k8sphp:latest
+        name: fadeev
+        ports:
+        - containerPort: 80
